@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل في البرنامج | H&M</title>
+    <link rel="stylesheet" href="CSS/Style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="container nav-content">
+
+        <a href="index.html" class="logo">H<span>&</span>M</a>
+
+        <button class="menu-btn" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="primary-navigation"><i data-lucide="menu" aria-hidden="true"></i></button>
+
+        <nav class="nav-links" id="primary-navigation">
+
+            <a href="index.html">الرئيسية</a>
+            <a href="branches.html">فروعنا</a>
+            <a href="services.html">خدماتنا</a>
+            <a href="products.html">المنتجات</a>
+            <a href="contact.html">تواصل معنا</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>التسجيل في البرنامج</h1>
+
+        <p>
+            املأ البيانات وسيتم التواصل معك
+        </p>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="container">
+
+        <form class="form-box" onsubmit="registerProgram(event)">
+
+            <div class="form-group">
+
+                <label>الاسم بالكامل</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    required
+                    placeholder="اكتب اسمك">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>رقم الهاتف</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    required
+                    placeholder="01xxxxxxxxx">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>السن</label>
+
+                <input
+                    type="number"
+                    id="age"
+                    required
+                    placeholder="العمر">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>الطول</label>
+
+                <input
+                    type="text"
+                    id="height"
+                    placeholder="مثال: 170 سم">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>الوزن الحالي</label>
+
+                <input
+                    type="text"
+                    id="weight"
+                    placeholder="مثال: 85 كجم">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>الهدف</label>
+
+                <select id="program">
+
+                    <option value="تخسيس">تخسيس</option>
+                    <option value="زيادة وزن">زيادة وزن</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>هل يوجد تاريخ مرضي أو أدوية مستخدمة؟</label>
+
+                <textarea
+                    id="medical"
+                    placeholder="اكتب التفاصيل إن وجدت"></textarea>
+
+            </div>
+
+            <button type="submit" class="btn btn-green">
+                <i data-lucide="message-circle" aria-hidden="true"></i>
+                إرسال البيانات على WhatsApp
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="container">
+
+        <div class="copyright">
+            © 2026 صيدليات H&M
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="JS/Script.JS"></script>
+
+<script>
+
+function registerProgram(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const age = document.getElementById("age").value;
+    const height = document.getElementById("height").value;
+    const weight = document.getElementById("weight").value;
+    const program = document.getElementById("program").value;
+    const medical = document.getElementById("medical").value;
+
+    const message =
+        "طلب تسجيل في برنامج صيدليات H&M\n\n" +
+        "الاسم: " + name + "\n" +
+        "رقم الهاتف: " + phone + "\n" +
+        "السن: " + age + "\n" +
+        "الطول: " + height + "\n" +
+        "الوزن: " + weight + "\n" +
+        "البرنامج: " + program + "\n" +
+        "التاريخ المرضي / الأدوية: " + medical;
+
+    const doctorNumber = "201000000000";
+
+    sendToWhatsApp(doctorNumber, message);
+}
+
+</script>
+
+</body>
+</html>
